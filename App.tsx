@@ -20,6 +20,15 @@ export default function App() {
         <View style={{ ...styles.box, ...styles.green }}>
           <Text style={styles.text}>3</Text>
         </View>
+        <View style={{ ...styles.box, ...styles.green }}>
+          <Text style={styles.text}>3</Text>
+        </View>
+        <View style={{ ...styles.box, ...styles.green }}>
+          <Text style={styles.text}>3</Text>
+        </View>
+        <View style={{ ...styles.box, ...styles.green }}>
+          <Text style={styles.text}>3</Text>
+        </View>
       </View>
     </View>
   );
@@ -38,14 +47,16 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     backgroundColor: "yellow",
-
+    // flexWrap: "wrap",
+    gap: 4,
+    // rowGap: 5,
     height: 600,
   },
   box: {
     // width: 100,
     height: 100,
     padding: 5,
-    // flexBasis: 100,
+    flexBasis: 100,
   },
   green: { backgroundColor: "green", flexGrow: 1 },
   red: { backgroundColor: "red", flexShrink: 1 },
