@@ -33,10 +33,10 @@ const styles = StyleSheet.create({
   },
   flexContainer: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     backgroundColor: "yellow",
-    alignItems: "center",
-    justifyContent: "space-around",
+    alignItems: "flex-start",
+    justifyContent: "flex-end",
     height: 600,
   },
   box: {
@@ -44,8 +44,8 @@ const styles = StyleSheet.create({
     height: 100,
     padding: 40,
   },
-  green: { backgroundColor: "green" },
-  red: { backgroundColor: "red" },
+  green: { backgroundColor: "green", alignSelf: "flex-end" },
+  red: { backgroundColor: "red", alignSelf: "center" },
   orange: { backgroundColor: "orange" },
   pink: { backgroundColor: "pink" },
 });
