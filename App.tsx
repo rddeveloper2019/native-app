@@ -9,22 +9,16 @@ export default function App() {
           <Text style={styles.text}>1</Text>
         </View>
         <View style={{ ...styles.box, ...styles.orange }}>
-          <Text style={styles.text}>2</Text>
+          <Text style={styles.text}>20000000</Text>
         </View>
         <View style={{ ...styles.box, ...styles.green }}>
           <Text style={styles.text}>3</Text>
         </View>
-        <View style={{ ...styles.box, ...styles.pink }}>
-          <Text style={styles.text}>4</Text>
+        <View style={{ ...styles.box, ...styles.green }}>
+          <Text style={styles.text}>3</Text>
         </View>
-        <View style={{ ...styles.box, ...styles.pink }}>
-          <Text style={styles.text}>4</Text>
-        </View>
-        <View style={{ ...styles.box, ...styles.pink }}>
-          <Text style={styles.text}>4</Text>
-        </View>
-        <View style={{ ...styles.box, ...styles.pink }}>
-          <Text style={styles.text}>4</Text>
+        <View style={{ ...styles.box, ...styles.green }}>
+          <Text style={styles.text}>3</Text>
         </View>
       </View>
     </View>
@@ -42,21 +36,19 @@ const styles = StyleSheet.create({
   },
   flexContainer: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     backgroundColor: "yellow",
-    alignItems: "flex-start",
-    justifyContent: "center",
+
     height: 600,
-    flexWrap: "wrap",
-    alignContent: "center",
   },
   box: {
     // width: 100,
     height: 100,
-    padding: 40,
+    padding: 5,
+    // flexBasis: 100,
   },
-  green: { backgroundColor: "green", alignSelf: "flex-end" },
-  red: { backgroundColor: "red", alignSelf: "center" },
-  orange: { backgroundColor: "orange" },
+  green: { backgroundColor: "green", flexGrow: 1 },
+  red: { backgroundColor: "red", flexShrink: 1 },
+  orange: { backgroundColor: "orange", flexShrink: 1 },
   pink: { backgroundColor: "pink" },
 });
