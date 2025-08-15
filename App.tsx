@@ -1,33 +1,30 @@
 import { StatusBar } from "expo-status-bar";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Button,
+  Dimensions,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 
 export default function App() {
+  const width = Dimensions.get("window").height / 4 - 5;
+
   return (
     <View style={styles.container}>
       <View style={styles.flexContainer}>
-        <View style={{ ...styles.box, ...styles.red }}>
-          <Text style={styles.text}>1</Text>
+        <View style={{ ...styles.box, ...styles.red, width }}>
+          <Text style={styles.text}>{width}</Text>
         </View>
-        <View style={{ ...styles.box, ...styles.orange }}>
-          <Text style={styles.text}>20000000</Text>
+        <View style={{ ...styles.box, ...styles.orange, width }}>
+          <Text style={styles.text}>{width}</Text>
         </View>
-        <View style={{ ...styles.box, ...styles.green }}>
-          <Text style={styles.text}>3</Text>
+        <View style={{ ...styles.box, ...styles.green, width }}>
+          <Text style={styles.text}>{width}</Text>
         </View>
-        <View style={{ ...styles.box, ...styles.green }}>
-          <Text style={styles.text}>3</Text>
-        </View>
-        <View style={{ ...styles.box, ...styles.green }}>
-          <Text style={styles.text}>3</Text>
-        </View>
-        <View style={{ ...styles.box, ...styles.green }}>
-          <Text style={styles.text}>3</Text>
-        </View>
-        <View style={{ ...styles.box, ...styles.green }}>
-          <Text style={styles.text}>3</Text>
-        </View>
-        <View style={{ ...styles.box, ...styles.green }}>
-          <Text style={styles.text}>3</Text>
+        <View style={{ ...styles.box, ...styles.green, width }}>
+          <Text style={styles.text}>{width}</Text>
         </View>
       </View>
     </View>
@@ -53,7 +50,6 @@ const styles = StyleSheet.create({
     height: 600,
   },
   box: {
-    // width: 100,
     height: 100,
     padding: 5,
     flexBasis: 100,
