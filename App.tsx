@@ -17,6 +17,15 @@ export default function App() {
         <View style={{ ...styles.box, ...styles.pink }}>
           <Text style={styles.text}>4</Text>
         </View>
+        <View style={{ ...styles.box, ...styles.pink }}>
+          <Text style={styles.text}>4</Text>
+        </View>
+        <View style={{ ...styles.box, ...styles.pink }}>
+          <Text style={styles.text}>4</Text>
+        </View>
+        <View style={{ ...styles.box, ...styles.pink }}>
+          <Text style={styles.text}>4</Text>
+        </View>
       </View>
     </View>
   );
@@ -33,11 +42,13 @@ const styles = StyleSheet.create({
   },
   flexContainer: {
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "column",
     backgroundColor: "yellow",
     alignItems: "flex-start",
-    justifyContent: "flex-end",
+    justifyContent: "center",
     height: 600,
+    flexWrap: "wrap",
+    alignContent: "center",
   },
   box: {
     // width: 100,
