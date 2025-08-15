@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import {
   Button,
   Dimensions,
@@ -13,19 +12,14 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.flexContainer}>
-        <View style={{ ...styles.box, ...styles.red, width }}>
-          <Text style={styles.text}>{width}</Text>
+      <View style={styles.content}>
+        <Text>PurpleSchool</Text>
+        <View style={styles.form}>
+          <TextInput style={styles.input} />
+          <TextInput style={styles.input} />
+          <Button title="Войти" />
         </View>
-        <View style={{ ...styles.box, ...styles.orange, width }}>
-          <Text style={styles.text}>{width}</Text>
-        </View>
-        <View style={{ ...styles.box, ...styles.green, width }}>
-          <Text style={styles.text}>{width}</Text>
-        </View>
-        <View style={{ ...styles.box, ...styles.green, width }}>
-          <Text style={styles.text}>{width}</Text>
-        </View>
+        <Text>Восстановить пароль</Text>
       </View>
     </View>
   );
@@ -33,29 +27,13 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 90,
+    justifyContent: "center",
+    padding: 55,
+    flex: 1,
   },
-  text: {
-    color: "#fff",
-    fontSize: 20,
-    fontWeight: 500,
+  content: { justifyContent: "center", alignItems: "center", gap: 50 },
+  form: { alignSelf: "stretch", gap: 16 },
+  input: {
+    backgroundColor: "#2E2D3D",
   },
-  flexContainer: {
-    display: "flex",
-    flexDirection: "row",
-    backgroundColor: "yellow",
-    // flexWrap: "wrap",
-    gap: 4,
-    // rowGap: 5,
-    height: 600,
-  },
-  box: {
-    height: 100,
-    padding: 5,
-    flexBasis: 100,
-  },
-  green: { backgroundColor: "green", flexGrow: 1 },
-  red: { backgroundColor: "red", flexShrink: 1 },
-  orange: { backgroundColor: "orange", flexShrink: 1 },
-  pink: { backgroundColor: "pink" },
 });
