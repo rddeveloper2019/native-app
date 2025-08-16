@@ -8,8 +8,6 @@ import {
 } from "react-native";
 import { Input } from "./shared/Input";
 import { Colors, FontSize, Gaps } from "./shared/tokens";
-import EyeClosedIcon from "./assets/icons/eye-closed";
-import EyeOpenIcon from "./assets/icons/eye-open";
 
 export default function App() {
   const width = Dimensions.get("window").height / 4 - 5;
@@ -24,12 +22,10 @@ export default function App() {
         />
         <View style={styles.form}>
           <Input placeholder="Email" />
-          <Input placeholder="Пароль" />
+          <Input isPassword placeholder="Пароль" />
           <Button title="Войти" />
         </View>
         <Text style={styles.link}>Восстановить пароль</Text>
-        <EyeClosedIcon />
-        <EyeOpenIcon />
       </View>
     </View>
   );

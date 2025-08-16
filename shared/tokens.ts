@@ -17,6 +17,7 @@ export const enum Gaps {
 export const enum Radius {
   _10 = 10,
 }
+
 export const enum FontSize {
   _16 = 16,
   _18 = 18,
