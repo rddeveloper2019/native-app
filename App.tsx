@@ -1,13 +1,7 @@
-import {
-  Button,
-  Dimensions,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-} from "react-native";
+import { Dimensions, StyleSheet, Text, View, Image } from "react-native";
 import { Input } from "./shared/Input";
 import { Colors, FontSize, Gaps } from "./shared/tokens";
+import { Button } from "./shared/Button";
 
 export default function App() {
   const width = Dimensions.get("window").height / 4 - 5;
@@ -23,7 +17,7 @@ export default function App() {
         <View style={styles.form}>
           <Input placeholder="Email" />
           <Input isPassword placeholder="Пароль" />
-          <Button title="Войти" />
+          <Button text="Войти" />
         </View>
         <Text style={styles.link}>Восстановить пароль</Text>
       </View>
