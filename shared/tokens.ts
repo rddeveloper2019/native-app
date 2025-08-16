@@ -4,7 +4,7 @@ export const enum Colors {
   Gray = "#AFB2BF",
   White = "#FAFAFA",
   Black = "#16171D",
-  Red = "#FAFAFA",
+  Red = "#CC384E",
   VioletDark = "#2E2D3D",
   Links = "#A97BFF",
 }

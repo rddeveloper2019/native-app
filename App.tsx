@@ -12,40 +12,46 @@ import {
 import { Input } from "./shared/Input";
 import { Colors, FontSize, Gaps } from "./shared/tokens";
 import { Button } from "./shared/Button";
+import { ErrorNotification } from "./shared/ErrorNotification";
+import { useState } from "react";
 
 export default function App() {
+  const [error, setError] = useState<string | undefined>();
   const width = Dimensions.get("window").height / 4 - 5;
 
   const alert = () => {
-    if (Platform.OS === "android") {
-      ToastAndroid.showWithGravity(
-        "All Your Base Are Belong To Us",
-        ToastAndroid.SHORT,
-        ToastAndroid.TOP
-      );
-    } else {
-      Alert.alert("Ошибка!", "Неверный логин или пароль", [
-        {
-          text: "Неплохо",
-          style: "default",
-          onPress: () => {},
-        },
-        {
-          text: "Плохо",
-          style: "cancel",
-          onPress: () => {},
-        },
-        {
-          text: "Всё равно",
-          style: "destructive",
-          onPress: () => {},
-        },
-      ]);
-    }
+    setError("Неверный логин или пароль");
+
+    // if (Platform.OS === "android") {
+    //   ToastAndroid.showWithGravity(
+    //     "Неверный логин или пароль",
+    //     ToastAndroid.SHORT,
+    //     ToastAndroid.TOP
+    //   );
+    // } else {
+    //   Alert.alert("Ошибка!", "Неверный логин или пароль", [
+    //     {
+    //       text: "Неплохо",
+    //       style: "default",
+    //       onPress: () => {},
+    //     },
+    //     {
+    //       text: "Плохо",
+    //       style: "cancel",
+    //       onPress: () => {},
+    //     },
+    //     {
+    //       text: "Всё равно",
+    //       style: "destructive",
+    //       onPress: () => {},
+    //     },
+    //   ]);
+    // }
   };
 
   return (
     <View style={styles.container}>
+      <ErrorNotification error={error} />
       <View style={styles.content}>
         <Image
           source={require("./assets/logo.png")}
