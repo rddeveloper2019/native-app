@@ -1,4 +1,11 @@
-import { Dimensions, StyleSheet, Text, View, Image } from "react-native";
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Animated,
+} from "react-native";
 import { Input } from "./shared/Input";
 import { Colors, FontSize, Gaps } from "./shared/tokens";
 import { Button } from "./shared/Button";
