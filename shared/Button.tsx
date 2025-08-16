@@ -13,13 +13,16 @@ export const Button = ({
   text,
   ...props
 }: PressableProps & { text: string }) => {
-  const animatedValue = new Animated.ValueXY({ x: 0, y: 0 });
+  const animatedValue = new Animated.Value(0);
+
+  const color = animatedValue.interpolate({
+    inputRange: [0, 100],
+    outputRange: [Colors.Primary, Colors.PrimaryHover],
+  });
+
   const animation = Animated.timing(animatedValue, {
-    duration: 2000,
-    toValue: {
-      x: 100,
-      y: 100,
-    },
+    duration: 3000,
+    toValue: 100,
     useNativeDriver: true,
   });
 
@@ -29,10 +32,7 @@ export const Button = ({
       <Animated.View
         style={{
           ...styles.button,
-          transform: [
-            { translateX: animatedValue.x },
-            { translateY: animatedValue.y },
-          ],
+          backgroundColor: color,
         }}
       >
         <Text style={styles.text}>{text}</Text>
@@ -43,7 +43,6 @@ export const Button = ({
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: Colors.Primary,
     paddingVertical: 18,
     justifyContent: "center",
     alignItems: "center",
