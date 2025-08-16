@@ -1,21 +1,30 @@
 import { useEffect, useState } from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { View, Text, StyleSheet, Dimensions, Animated } from "react-native";
 import { Colors, FontSize } from "./tokens";
 
 export const ErrorNotification = ({ error }: { error?: string }) => {
   const [shown, setShown] = useState(false);
+  const animatedValue = new Animated.Value(-100);
+
+  const handleLayout = () => {
+    Animated.timing(animatedValue, {
+      toValue: 0,
+      duration: 400,
+      useNativeDriver: true,
+    }).start();
+  };
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
-
-    if (error) {
-      setShown(true);
-
-      timeout = setTimeout(() => {
-        clearTimeout(timeout);
-        setShown(false);
-      }, 3000);
+    if (!error) {
+      setShown(false);
+      return;
     }
+
+    setShown(true);
+
+    let timeout = setTimeout(() => {
+      setShown(false);
+    }, 3000);
 
     return () => {
       clearTimeout(timeout);
@@ -27,9 +36,12 @@ export const ErrorNotification = ({ error }: { error?: string }) => {
   }
 
   return (
-    <View style={styles.errorBox}>
+    <Animated.View
+      style={{ ...styles.errorBox, transform: [{ translateY: animatedValue }] }}
+      onLayout={handleLayout}
+    >
       <Text style={styles.error}>{error}</Text>
-    </View>
+    </Animated.View>
   );
 };
 

@@ -21,6 +21,9 @@ export default function App() {
 
   const alert = () => {
     setError("Неверный логин или пароль");
+    setTimeout(() => {
+      setError(undefined);
+    }, 3000);
 
     // if (Platform.OS === "android") {
     //   ToastAndroid.showWithGravity(
