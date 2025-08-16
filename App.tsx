@@ -5,6 +5,9 @@ import {
   View,
   Image,
   Animated,
+  Alert,
+  Platform,
+  ToastAndroid,
 } from "react-native";
 import { Input } from "./shared/Input";
 import { Colors, FontSize, Gaps } from "./shared/tokens";
@@ -12,6 +15,34 @@ import { Button } from "./shared/Button";
 
 export default function App() {
   const width = Dimensions.get("window").height / 4 - 5;
+
+  const alert = () => {
+    if (Platform.OS === "android") {
+      ToastAndroid.showWithGravity(
+        "All Your Base Are Belong To Us",
+        ToastAndroid.SHORT,
+        ToastAndroid.TOP
+      );
+    } else {
+      Alert.alert("Ошибка!", "Неверный логин или пароль", [
+        {
+          text: "Неплохо",
+          style: "default",
+          onPress: () => {},
+        },
+        {
+          text: "Плохо",
+          style: "cancel",
+          onPress: () => {},
+        },
+        {
+          text: "Всё равно",
+          style: "destructive",
+          onPress: () => {},
+        },
+      ]);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -24,7 +55,7 @@ export default function App() {
         <View style={styles.form}>
           <Input placeholder="Email" />
           <Input isPassword placeholder="Пароль" />
-          <Button text="Войти" />
+          <Button text="Войти" onPress={alert} />
         </View>
         <Text style={styles.link}>Восстановить пароль</Text>
       </View>
@@ -35,7 +66,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
-    padding: 55,
+    paddingHorizontal: 35,
     flex: 1,
     backgroundColor: Colors.Black,
   },

@@ -1,6 +1,7 @@
 import {
   Animated,
   Dimensions,
+  GestureResponderEvent,
   Pressable,
   PressableProps,
   StyleSheet,
@@ -20,15 +21,28 @@ export const Button = ({
     outputRange: [Colors.Primary, Colors.PrimaryHover],
   });
 
-  const animation = Animated.timing(animatedValue, {
-    duration: 3000,
-    toValue: 100,
-    useNativeDriver: true,
-  });
+  const handlePressIn = (e: GestureResponderEvent) => {
+    Animated.timing(animatedValue, {
+      duration: 100,
+      toValue: 100,
+      useNativeDriver: true,
+    }).start();
 
-  animation.start();
+    props.onPressIn?.(e);
+  };
+
+  const handlePressOut = (e: GestureResponderEvent) => {
+    Animated.timing(animatedValue, {
+      duration: 100,
+      toValue: 0,
+      useNativeDriver: true,
+    }).start();
+
+    props.onPressOut?.(e);
+  };
+
   return (
-    <Pressable {...props}>
+    <Pressable {...props} onPressIn={handlePressIn} onPressOut={handlePressOut}>
       <Animated.View
         style={{
           ...styles.button,
