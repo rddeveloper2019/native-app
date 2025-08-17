@@ -32,7 +32,7 @@ export const ErrorNotification = ({ error }: { error?: string }) => {
   }, [error]);
 
   if (!shown) {
-    return <></>;
+    return null;
   }
 
   return (
