@@ -1,12 +1,10 @@
 import {
   Animated,
-  Dimensions,
   GestureResponderEvent,
   Pressable,
   PressableProps,
   StyleSheet,
   Text,
-  View,
 } from "react-native";
 import { Colors, FontSize, Radius } from "./tokens";
 

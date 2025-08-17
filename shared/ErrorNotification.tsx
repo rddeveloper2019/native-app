@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, Text, StyleSheet, Dimensions, Animated } from "react-native";
+import { Text, StyleSheet, Dimensions, Animated } from "react-native";
 import { Colors, FontSize } from "./tokens";
 
 export const ErrorNotification = ({ error }: { error?: string }) => {
