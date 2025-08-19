@@ -24,6 +24,10 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "scheme": "purple-school-native-app-scheme"
   }
 }

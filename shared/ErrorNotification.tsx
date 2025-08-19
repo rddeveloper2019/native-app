@@ -37,7 +37,10 @@ export const ErrorNotification = ({ error }: { error?: string }) => {
   }
 
   return (
-    <Animated.View style={{ ...styles.errorBox, transform: [{ translateY: animatedValue }] }} onLayout={handleLayout}>
+    <Animated.View
+      style={{ ...styles.errorBox, transform: [{ translateY: animatedValue }] }}
+      onLayout={handleLayout}
+    >
       <Text style={styles.error}>{error}</Text>
     </Animated.View>
   );

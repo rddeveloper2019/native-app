@@ -1,5 +1,11 @@
 import React from 'react';
-import { Pressable, StyleSheet, TextInput, TextInputProps, View } from 'react-native';
+import {
+  Pressable,
+  StyleSheet,
+  TextInput,
+  TextInputProps,
+  View,
+} from 'react-native';
 import { Colors, FontSize, Radius } from './tokens';
 import EyeClosedIcon from '../assets/icons/eye-closed';
 import EyeOpenIcon from '../assets/icons/eye-open';
@@ -18,7 +24,10 @@ export const Input = (props: TextInputProps & { isPassword?: boolean }) => {
       />
 
       {props.isPassword && (
-        <Pressable onPress={() => setIsPassVisible(!isPassVisible)} style={styles.eyeIcons}>
+        <Pressable
+          onPress={() => setIsPassVisible(!isPassVisible)}
+          style={styles.eyeIcons}
+        >
           <View style={styles.eyeIcon}>
             {isPassVisible && <EyeOpenIcon />}
             {!isPassVisible && <EyeClosedIcon />}

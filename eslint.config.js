@@ -42,7 +42,7 @@ export default [
           semi: true,
           trailingComma: 'all',
           bracketSpacing: true,
-          printWidth: 120,
+          printWidth: 80,
           endOfLine: 'auto',
         },
       ],

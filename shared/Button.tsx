@@ -1,8 +1,18 @@
 import React from 'react';
-import { Animated, GestureResponderEvent, Pressable, PressableProps, StyleSheet, Text } from 'react-native';
+import {
+  Animated,
+  GestureResponderEvent,
+  Pressable,
+  PressableProps,
+  StyleSheet,
+  Text,
+} from 'react-native';
 import { Colors, FontSize, Radius } from './tokens';
 
-export const Button = ({ text, ...props }: PressableProps & { text: string }) => {
+export const Button = ({
+  text,
+  ...props
+}: PressableProps & { text: string }) => {
   const animatedValue = new Animated.Value(0);
 
   const color = animatedValue.interpolate({

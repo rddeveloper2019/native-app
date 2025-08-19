@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import { Input } from './shared/Input';
-import { Colors, FontSize, Gaps } from './shared/tokens';
-import { Button } from './shared/Button';
-import { ErrorNotification } from './shared/ErrorNotification';
+import { Input } from '../shared/Input';
+import { Colors, FontSize, Gaps } from '../shared/tokens';
+import { Button } from '../shared/Button';
+import { ErrorNotification } from '../shared/ErrorNotification';
 import { useState } from 'react';
 
 export default function App() {
@@ -47,7 +47,11 @@ export default function App() {
     <View style={styles.container}>
       <ErrorNotification error={error} />
       <View style={styles.content}>
-        <Image source={require('./assets/logo.png')} style={styles.logo} resizeMode="contain" />
+        <Image
+          source={require('../assets/logo.png')}
+          style={styles.logo}
+          resizeMode="contain"
+        />
         <View style={styles.form}>
           <Input placeholder="Email" />
           <Input isPassword placeholder="Пароль" />
