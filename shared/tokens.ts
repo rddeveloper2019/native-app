@@ -1,12 +1,12 @@
 export const enum Colors {
-  PrimaryHover = "#452481",
-  Primary = "#6C38CC",
-  Gray = "#AFB2BF",
-  White = "#FAFAFA",
-  Black = "#16171D",
-  Red = "#CC384E",
-  VioletDark = "#2E2D3D",
-  Links = "#A97BFF",
+  PrimaryHover = '#452481',
+  Primary = '#6C38CC',
+  Gray = '#AFB2BF',
+  White = '#FAFAFA',
+  Black = '#16171D',
+  Red = '#CC384E',
+  VioletDark = '#2E2D3D',
+  Links = '#A97BFF',
 }
 
 export const enum Gaps {

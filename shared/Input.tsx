@@ -1,14 +1,9 @@
-import {
-  Pressable,
-  StyleSheet,
-  TextInput,
-  TextInputProps,
-  View,
-} from "react-native";
-import { Colors, FontSize, Radius } from "./tokens";
-import EyeClosedIcon from "../assets/icons/eye-closed";
-import EyeOpenIcon from "../assets/icons/eye-open";
-import { useState } from "react";
+import React from 'react';
+import { Pressable, StyleSheet, TextInput, TextInputProps, View } from 'react-native';
+import { Colors, FontSize, Radius } from './tokens';
+import EyeClosedIcon from '../assets/icons/eye-closed';
+import EyeOpenIcon from '../assets/icons/eye-open';
+import { useState } from 'react';
 
 export const Input = (props: TextInputProps & { isPassword?: boolean }) => {
   const [isPassVisible, setIsPassVisible] = useState(true);
@@ -23,10 +18,7 @@ export const Input = (props: TextInputProps & { isPassword?: boolean }) => {
       />
 
       {props.isPassword && (
-        <Pressable
-          onPress={() => setIsPassVisible(!isPassVisible)}
-          style={styles.eyeIcons}
-        >
+        <Pressable onPress={() => setIsPassVisible(!isPassVisible)} style={styles.eyeIcons}>
           <View style={styles.eyeIcon}>
             {isPassVisible && <EyeOpenIcon />}
             {!isPassVisible && <EyeClosedIcon />}
@@ -47,14 +39,14 @@ const styles = StyleSheet.create({
     color: Colors.Gray,
   },
   eyeIcons: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     right: 0,
   },
   eyeIcon: {
     height: 58,
     marginRight: 24,
-    justifyContent: "center",
-    alignContent: "center",
+    justifyContent: 'center',
+    alignContent: 'center',
   },
 });

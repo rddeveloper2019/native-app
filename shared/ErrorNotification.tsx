@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { Text, StyleSheet, Dimensions, Animated } from "react-native";
-import { Colors, FontSize } from "./tokens";
+import React from 'react';
+import { useEffect, useState } from 'react';
+import { Text, StyleSheet, Dimensions, Animated } from 'react-native';
+import { Colors, FontSize } from './tokens';
 
 export const ErrorNotification = ({ error }: { error?: string }) => {
   const [shown, setShown] = useState(false);
@@ -22,7 +23,7 @@ export const ErrorNotification = ({ error }: { error?: string }) => {
 
     setShown(true);
 
-    let timeout = setTimeout(() => {
+    const timeout = setTimeout(() => {
       setShown(false);
     }, 3000);
 
@@ -36,10 +37,7 @@ export const ErrorNotification = ({ error }: { error?: string }) => {
   }
 
   return (
-    <Animated.View
-      style={{ ...styles.errorBox, transform: [{ translateY: animatedValue }] }}
-      onLayout={handleLayout}
-    >
+    <Animated.View style={{ ...styles.errorBox, transform: [{ translateY: animatedValue }] }} onLayout={handleLayout}>
       <Text style={styles.error}>{error}</Text>
     </Animated.View>
   );
@@ -47,9 +45,9 @@ export const ErrorNotification = ({ error }: { error?: string }) => {
 
 const styles = StyleSheet.create({
   errorBox: {
-    position: "absolute",
+    position: 'absolute',
     top: 50,
-    width: Dimensions.get("screen").width,
+    width: Dimensions.get('screen').width,
     backgroundColor: Colors.Red,
 
     padding: 16,
@@ -57,6 +55,6 @@ const styles = StyleSheet.create({
   error: {
     fontSize: FontSize._16,
     color: Colors.White,
-    textAlign: "center",
+    textAlign: 'center',
   },
 });

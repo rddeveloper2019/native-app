@@ -1,5 +1,5 @@
-import * as React from "react";
-import Svg, { Path } from "react-native-svg";
+import * as React from 'react';
+import Svg, { Path } from 'react-native-svg';
 const EyeClosedIcon = () => (
   <Svg width={22} height={12} fill="none">
     <Path
