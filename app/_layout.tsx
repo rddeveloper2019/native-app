@@ -1,7 +1,7 @@
 import { Slot, Stack, Tabs } from 'expo-router';
 import { setStatusBarBackgroundColor, StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { View, Text, Button, Platform } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, Button, Platform, Image } from 'react-native';
 import { Colors } from '../shared/tokens';
 import {
   SafeAreaProvider,
@@ -10,14 +10,28 @@ import {
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
+SplashScreen.setOptions({
+  duration: 1000,
+  fade: true,
+});
+
+SplashScreen.preventAutoHideAsync();
+
 const RootLayout = () => {
   const insets = useSafeAreaInsets();
+
   const [loaded, error] = useFonts({
     'FiraSans-Regular': require('../assets/fonts/FiraSans-Regular.ttf'),
     'FiraSans-SemiBold': require('../assets/fonts/FiraSans-SemiBold.ttf'),
   });
 
-  if (!loaded) {
+  useEffect(() => {
+    if (loaded || error) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded, error]);
+
+  if (!loaded && !error) {
     return null;
   }
 
@@ -51,7 +65,6 @@ const RootLayout = () => {
             title: 'Восстановление',
           }}
         />
-        <Stack.Screen />
       </Stack>
     </SafeAreaProvider>
   );

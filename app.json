@@ -11,7 +11,7 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#16171D"
     },
     "ios": {
       "supportsTablet": true
@@ -28,7 +28,19 @@
     },
     "plugins": [
       "expo-router",
-      "expo-font"
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#16171D",
+          "image": "./assets/splash-icon.png",
+          "dark": {
+            "image": "ю/assets/splash-icon.png",
+            "backgroundColor": "#16171D"
+          },
+          "imageWidth": 200
+        }
+      ]
     ],
     "scheme": "purple-school-native-app-scheme"
   }
