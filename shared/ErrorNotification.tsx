@@ -49,7 +49,7 @@ export const ErrorNotification = ({ error }: { error?: string }) => {
 const styles = StyleSheet.create({
   errorBox: {
     position: 'absolute',
-    top: 50,
+    top: 0,
     width: Dimensions.get('screen').width,
     backgroundColor: Colors.Red,
 
