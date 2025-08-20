@@ -60,6 +60,7 @@ const Login = () => {
             <Button text="Войти" onPress={alert} />
           </View>
           <AppLink href={'/restore'} text="Восстановить пароль" />
+          <AppLink href={'/course/typescript'} text="Перейти к курсу" />
         </View>
       </View>
     </SafeAreaView>
