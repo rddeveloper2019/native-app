@@ -1,35 +1,48 @@
 import { Slot, Stack, Tabs } from 'expo-router';
-import { setStatusBarBackgroundColor } from 'expo-status-bar';
+import { setStatusBarBackgroundColor, StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Platform } from 'react-native';
 import { Colors } from '../shared/tokens';
+import {
+  SafeAreaProvider,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
 
 const RootLayout = () => {
+  const insets = useSafeAreaInsets();
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: { backgroundColor: Colors.Black },
-        headerTintColor: Colors.White,
-        headerTitleStyle: { fontWeight: 'bold' },
-        animation: 'slide_from_right',
-        gestureEnabled: true,
-      }}
-    >
-      <Stack.Screen
-        name="index"
-        options={{
-          title: 'Главная',
-          headerRight: () => <Button title="Info" onPress={() => {}} />,
+    <SafeAreaProvider>
+      <StatusBar style="light" />
+      <Stack
+        screenOptions={{
+          headerStyle: { backgroundColor: Colors.Black },
+          headerTintColor: Colors.White,
+          headerTitleStyle: { fontWeight: 'bold' },
+          animation: 'slide_from_right',
+          gestureEnabled: true,
+          contentStyle: {
+            backgroundColor: Colors.Black,
+            paddingTop: Platform.OS === 'android' ? insets.top : 0,
+            paddingBottom: insets.bottom,
+          },
         }}
-      />
-      <Stack.Screen
-        name="restore"
-        options={{
-          title: 'Восстановление',
-        }}
-      />
-      <Stack.Screen />
-    </Stack>
+      >
+        <Stack.Screen
+          name="index"
+          options={{
+            title: 'Главная',
+            headerRight: () => <Button title="Info" onPress={() => {}} />,
+          }}
+        />
+        <Stack.Screen
+          name="restore"
+          options={{
+            title: 'Восстановление',
+          }}
+        />
+        <Stack.Screen />
+      </Stack>
+    </SafeAreaProvider>
   );
 };
 
