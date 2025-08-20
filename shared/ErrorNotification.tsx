@@ -1,7 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { Text, StyleSheet, Dimensions, Animated } from 'react-native';
+import { StyleSheet, Dimensions, Animated } from 'react-native';
 import { Colors, FontSize } from './tokens';
+import { AppText } from './AppText';
 
 export const ErrorNotification = ({ error }: { error?: string }) => {
   const [shown, setShown] = useState(false);
@@ -41,7 +42,7 @@ export const ErrorNotification = ({ error }: { error?: string }) => {
       style={{ ...styles.errorBox, transform: [{ translateY: animatedValue }] }}
       onLayout={handleLayout}
     >
-      <Text style={styles.error}>{error}</Text>
+      <AppText style={styles.error}>{error}</AppText>
     </Animated.View>
   );
 };
@@ -52,12 +53,10 @@ const styles = StyleSheet.create({
     top: 0,
     width: Dimensions.get('screen').width,
     backgroundColor: Colors.Red,
-
     padding: 16,
   },
   error: {
     fontSize: FontSize._16,
-    color: Colors.White,
     textAlign: 'center',
   },
 });

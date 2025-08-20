@@ -8,6 +8,7 @@ import {
   Text,
 } from 'react-native';
 import { Colors, FontFamily, FontSize, Radius } from './tokens';
+import { AppText } from './AppText';
 
 export const Button = ({
   text,
@@ -48,7 +49,7 @@ export const Button = ({
           backgroundColor: color,
         }}
       >
-        <Text style={styles.text}>{text}</Text>
+        <AppText style={styles.text}>{text}</AppText>
       </Animated.View>
     </Pressable>
   );
@@ -63,8 +64,6 @@ const styles = StyleSheet.create({
     borderRadius: Radius._10,
   },
   text: {
-    color: Colors.White,
-    fontSize: FontSize._18,
     fontFamily: FontFamily.Semibold,
   },
 });

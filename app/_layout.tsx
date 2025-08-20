@@ -18,7 +18,7 @@ SplashScreen.setOptions({
 SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
-  const insets = useSafeAreaInsets();
+  // const insets = useSafeAreaInsets();
 
   const [loaded, error] = useFonts({
     'FiraSans-Regular': require('../assets/fonts/FiraSans-Regular.ttf'),
@@ -47,8 +47,8 @@ const RootLayout = () => {
           gestureEnabled: true,
           contentStyle: {
             backgroundColor: Colors.Black,
-            paddingTop: Platform.OS === 'android' ? insets.top : 0,
-            paddingBottom: insets.bottom,
+            // paddingTop: Platform.OS === 'android' ? insets.top : 0,
+            // paddingBottom: insets.bottom,
           },
         }}
       >
