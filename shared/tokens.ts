@@ -22,3 +22,7 @@ export const enum FontSize {
   _16 = 16,
   _18 = 18,
 }
+export const enum FontFamily {
+  Regular = 'FiraSans-Regular',
+  Semibold = 'FiraSans-SemiBold',
+}

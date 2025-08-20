@@ -7,9 +7,20 @@ import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
 
 const RootLayout = () => {
   const insets = useSafeAreaInsets();
+  const [loaded, error] = useFonts({
+    'FiraSans-Regular': require('../assets/fonts/FiraSans-Regular.ttf'),
+    'FiraSans-SemiBold': require('../assets/fonts/FiraSans-SemiBold.ttf'),
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <SafeAreaProvider>
       <StatusBar style="light" />

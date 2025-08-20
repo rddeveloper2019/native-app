@@ -7,7 +7,7 @@ import {
   StyleSheet,
   Text,
 } from 'react-native';
-import { Colors, FontSize, Radius } from './tokens';
+import { Colors, FontFamily, FontSize, Radius } from './tokens';
 
 export const Button = ({
   text,
@@ -65,5 +65,6 @@ const styles = StyleSheet.create({
   text: {
     color: Colors.White,
     fontSize: FontSize._18,
+    fontFamily: FontFamily.Semibold,
   },
 });
