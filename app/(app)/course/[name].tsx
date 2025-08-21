@@ -1,6 +1,7 @@
 import { SafeAreaView, View, StyleSheet } from 'react-native';
-import { AppText } from '../../shared/AppText';
+
 import { Stack, useLocalSearchParams } from 'expo-router';
+import { AppText } from '../../../shared/AppText';
 
 const CoursePage = () => {
   const { name } = useLocalSearchParams();

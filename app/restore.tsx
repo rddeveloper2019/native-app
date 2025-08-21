@@ -6,15 +6,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Restore = () => {
   return (
-    <SafeAreaView style={styles.area}>
-      <View>
-        <AppLink
-          href={'/'}
-          text="На главный экран"
-          onPress={() => router.back()}
-        />
-      </View>
-    </SafeAreaView>
+    <View>
+      <AppLink
+        href={'/'}
+        text="На главный экран"
+        onPress={() => router.back()}
+      />
+    </View>
   );
 };
 

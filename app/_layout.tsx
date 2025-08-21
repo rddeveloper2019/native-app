@@ -40,6 +40,7 @@ const RootLayout = () => {
       <StatusBar style="light" />
       <Stack
         screenOptions={{
+          headerShown: false,
           headerStyle: { backgroundColor: Colors.Black },
           headerTintColor: Colors.White,
           headerTitleStyle: { fontWeight: 'bold' },
@@ -53,16 +54,20 @@ const RootLayout = () => {
         }}
       >
         <Stack.Screen
-          name="index"
+          name="login"
           options={{
-            title: 'Главная',
+            headerShown: true,
+            title: 'Логин',
             headerRight: () => <Button title="Info" onPress={() => {}} />,
+            headerBackTitle: 'Главная',
           }}
         />
         <Stack.Screen
           name="restore"
           options={{
+            headerShown: true,
             title: 'Восстановление',
+            headerBackTitle: '',
           }}
         />
       </Stack>
