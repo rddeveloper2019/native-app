@@ -26,7 +26,9 @@ const AppLayout = () => {
         options={{
           title: 'Главная',
           headerShown: true,
-          headerRight: () => <Button title="Info" onPress={() => {}} />,
+          headerRight: () => (
+            <Button title="?" onPress={() => {}} color={Colors.Primary} />
+          ),
         }}
       />
     </Stack>

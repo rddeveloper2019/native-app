@@ -37,7 +37,7 @@ const RootLayout = () => {
 
   return (
     <SafeAreaProvider>
-      <StatusBar style="light" />
+      {/* <StatusBar style="light" /> */}
       <Stack
         screenOptions={{
           headerShown: false,
