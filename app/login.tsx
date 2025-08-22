@@ -58,7 +58,7 @@ const Login = () => {
           <View style={styles.form}>
             <Input placeholder="Email" onChangeText={setEmail} />
             <Input isPassword placeholder="Пароль" onChangeText={setPassword} />
-            <Button text="Войти" onPress={submit} />
+            <Button text="Войти" onPress={submit} isLoading={isLoading} />
           </View>
           <AppLink href={'/restore'} text="Восстановить пароль" />
         </View>

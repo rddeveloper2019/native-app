@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ActivityIndicator,
   Animated,
   GestureResponderEvent,
   Pressable,
@@ -12,8 +13,9 @@ import { AppText } from './AppText';
 
 export const Button = ({
   text,
+  isLoading = false,
   ...props
-}: PressableProps & { text: string }) => {
+}: PressableProps & { text: string; isLoading?: boolean }) => {
   const animatedValue = new Animated.Value(0);
 
   const color = animatedValue.interpolate({
@@ -49,7 +51,8 @@ export const Button = ({
           backgroundColor: color,
         }}
       >
-        <AppText style={styles.text}>{text}</AppText>
+        {!isLoading && <AppText style={styles.text}>{text}</AppText>}
+        {isLoading && <ActivityIndicator size={'small'} color={Colors.White} />}
       </Animated.View>
     </Pressable>
   );
