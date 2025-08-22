@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, Text, View, Image, SafeAreaView } from 'react-native';
 import { Input } from '../shared/Input';
 import { Colors, FontSize, Gaps } from '../shared/tokens';
@@ -6,48 +6,49 @@ import { Button } from '../shared/Button';
 import { ErrorNotification } from '../shared/ErrorNotification';
 import { useState } from 'react';
 import { AppLink } from '../shared/AppLink';
+import { useAtom } from 'jotai';
+import { loginAtom } from '../entities/auth/model/auth.model';
+import { router } from 'expo-router';
 
 const Login = () => {
-  const [error, setError] = useState<string | undefined>();
-  // const width = Dimensions.get('window').height / 4 - 5;
+  const [localError, setLocalError] = useState<string | undefined>();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const alert = () => {
-    setError('Неверный логин или пароль');
-    setTimeout(() => {
-      setError(undefined);
-    }, 3000);
+  const [{ accessToken, error, isLoading }, login] = useAtom(loginAtom);
 
-    // if (Platform.OS === "android") {
-    //   ToastAndroid.showWithGravity(
-    //     "Неверный логин или пароль",
-    //     ToastAndroid.SHORT,
-    //     ToastAndroid.TOP
-    //   );
-    // } else {
-    //   Alert.alert("Ошибка!", "Неверный логин или пароль", [
-    //     {
-    //       text: "Неплохо",
-    //       style: "default",
-    //       onPress: () => {},
-    //     },
-    //     {
-    //       text: "Плохо",
-    //       style: "cancel",
-    //       onPress: () => {},
-    //     },
-    //     {
-    //       text: "Всё равно",
-    //       style: "destructive",
-    //       onPress: () => {},
-    //     },
-    //   ]);
-    // }
+  useEffect(() => {
+    if (error) {
+      setLocalError(error);
+    }
+  }, [error]);
+
+  useEffect(() => {
+    if (accessToken) {
+      router.replace('/');
+    }
+  }, [accessToken]);
+
+  const submit = () => {
+    if (!email) {
+      setLocalError('Введите email!');
+      return;
+    }
+    if (!password) {
+      setLocalError('Введите пароль!');
+      return;
+    }
+
+    login({ email, password });
   };
 
   return (
     <SafeAreaView style={styles.area}>
       <View style={styles.container}>
-        <ErrorNotification error={error} />
+        <ErrorNotification
+          error={localError}
+          onHide={() => setLocalError('')}
+        />
         <View style={styles.content}>
           <Image
             source={require('../assets/logo.png')}
@@ -55,9 +56,9 @@ const Login = () => {
             resizeMode="contain"
           />
           <View style={styles.form}>
-            <Input placeholder="Email" />
-            <Input isPassword placeholder="Пароль" />
-            <Button text="Войти" onPress={alert} />
+            <Input placeholder="Email" onChangeText={setEmail} />
+            <Input isPassword placeholder="Пароль" onChangeText={setPassword} />
+            <Button text="Войти" onPress={submit} />
           </View>
           <AppLink href={'/restore'} text="Восстановить пароль" />
         </View>

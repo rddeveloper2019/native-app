@@ -3,11 +3,13 @@ import { Button } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Colors } from '../../shared/tokens';
 import { StatusBar } from 'expo-status-bar';
-import { useAtomValue } from 'jotai';
-import { authAtom } from '../../entities/auth/model/auth.model';
+import { useAtomValue, useSetAtom } from 'jotai';
+import { authAtom, logoutAtom } from '../../entities/auth/model/auth.model';
+import { AppLink } from '../../shared/AppLink';
 
 const AppLayout = () => {
   const { accessToken } = useAtomValue(authAtom);
+  const logout = useSetAtom(logoutAtom);
 
   if (!accessToken) {
     return <Redirect href={'/login'} />;
@@ -24,8 +26,6 @@ const AppLayout = () => {
         gestureEnabled: true,
         contentStyle: {
           backgroundColor: Colors.Black,
-          // paddingTop: Platform.OS === 'android' ? insets.top : 0,
-          // paddingBottom: insets.bottom,
         },
       }}
     >
@@ -34,9 +34,7 @@ const AppLayout = () => {
         options={{
           title: 'Главная',
           headerShown: true,
-          headerRight: () => (
-            <Button title="?" onPress={() => {}} color={Colors.Primary} />
-          ),
+          headerRight: () => <AppLink text="Выйти" onPress={logout} />,
         }}
       />
     </Stack>

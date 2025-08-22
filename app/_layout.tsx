@@ -10,10 +10,10 @@ import {
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
-SplashScreen.setOptions({
-  duration: 1000,
-  fade: true,
-});
+// SplashScreen.setOptions({
+//   duration: 1000,
+//   fade: true,
+// });
 
 SplashScreen.preventAutoHideAsync();
 
@@ -58,7 +58,6 @@ const RootLayout = () => {
           options={{
             headerShown: true,
             title: 'Логин',
-            headerRight: () => <Button title="Info" onPress={() => {}} />,
             headerBackTitle: 'Главная',
           }}
         />

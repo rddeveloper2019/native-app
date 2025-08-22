@@ -4,7 +4,13 @@ import { StyleSheet, Dimensions, Animated } from 'react-native';
 import { Colors, FontSize } from './tokens';
 import { AppText } from './AppText';
 
-export const ErrorNotification = ({ error }: { error?: string }) => {
+export const ErrorNotification = ({
+  error,
+  onHide,
+}: {
+  error?: string;
+  onHide?: () => void;
+}) => {
   const [shown, setShown] = useState(false);
   const animatedValue = new Animated.Value(-100);
 
@@ -19,6 +25,7 @@ export const ErrorNotification = ({ error }: { error?: string }) => {
   useEffect(() => {
     if (!error) {
       setShown(false);
+      onHide?.();
       return;
     }
 
@@ -26,6 +33,7 @@ export const ErrorNotification = ({ error }: { error?: string }) => {
 
     const timeout = setTimeout(() => {
       setShown(false);
+      onHide?.();
     }, 3000);
 
     return () => {
