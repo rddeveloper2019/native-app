@@ -7,13 +7,15 @@ import { API } from '../api';
 
 const storage = createJSONStorage<AuthState>(() => AsyncStorage);
 
+const INITIAL_STATE = {
+  accessToken: null,
+  isLoading: false,
+  error: null,
+};
+
 export const authAtom = atomWithStorage<AuthState>(
   'auth',
-  {
-    accessToken: null,
-    isLoading: false,
-    error: null,
-  },
+  INITIAL_STATE,
   storage,
 );
 
@@ -41,6 +43,10 @@ export const loginAtom = atom(
     }
   },
 );
+
+export const logoutAtom = atom(null, (_, set) => {
+  set(authAtom, INITIAL_STATE);
+});
 
 export interface AuthState {
   accessToken: string | null;
